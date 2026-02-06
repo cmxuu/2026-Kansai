@@ -161,16 +161,9 @@
             box-shadow: 0 4px 15px rgba(255, 213, 79, 0.5);
         }
 
+        /* 備註內容樣式：移除高度限制，只保留換行 */
         .note-content {
-            max-height: 2.5rem;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            /* 修正 2: 加入 whitespace-pre-wrap 讓備註顯示時可以換行 */
             white-space: pre-wrap; 
-        }
-
-        .note-content.expanded {
-            max-height: 500px;
         }
         
         .expense-category-tag {
@@ -247,7 +240,8 @@
                      class="snap-center flex-shrink-0 min-w-[58px] h-[68px] rounded-xl flex flex-col items-center justify-center cursor-pointer transition-all duration-300 border-2 shadow-sm"
                      :class="selectedDateIndex === index ?
 'bg-deep-sea-blue text-white border-deep-sea-blue shadow-lg scale-105' : 'bg-white text-slate-400 border-white hover:bg-soft-gray'">
-                     <span class="text-sm font-bold uppercase tracking-wider">{{ day.weekday }}</span> 
+                    
+                    <span class="text-sm font-bold uppercase tracking-wider">{{ day.weekday }}</span> 
                     <span class="text-xs font-medium opacity-70">{{ day.date }}</span> 
                 </div>
             </div>
@@ -288,7 +282,7 @@
                     <div class="bg-white rounded-3xl p-5 card-shadow relative overflow-hidden flex items-start border border-ice-blue/50">
                         
                         <div class="mr-4 flex flex-col items-center min-w-[50px] flex-shrink-0">
-                            <div class="p-2 rounded-full text-white shadow-md text-base mb-1" :class="getCategoryColor(item.category)">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-md mb-1 text-base" :class="getCategoryColor(item.category)">
                                 <i :class="getCategoryIcon(item.category)"></i>
                             </div>
                             <span v-if="item.startTime" class="text-xs font-bold text-slate-600 mt-1">{{ item.startTime }}</span>
@@ -307,12 +301,9 @@
                                 <p class="text-slate-600 font-bold mb-1 flex items-center">
                                     <i class="fa-solid fa-highlighter text-accent-yellow mr-2"></i> 備註
                                 </p>
-                                <div class="note-content whitespace-pre-wrap" :class="{'expanded': item.isNoteExpanded}">
+                                <div class="note-content text-slate-600 leading-relaxed">
                                     {{ item.note }}
                                 </div>
-                                <button v-if="item.note.length > 50 || item.note.includes('\n')" @click="item.isNoteExpanded = !item.isNoteExpanded" class="text-deep-sea-blue font-bold mt-1 block">
-                                    {{ item.isNoteExpanded ? '收合備註' : '查看更多...' }}
-                                </button>
                             </div>
                         </div>
 
