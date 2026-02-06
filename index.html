@@ -6,9 +6,7 @@
     <title>2026｜關西之旅</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
     <script>
@@ -16,12 +14,12 @@
             theme: {
                 extend: {
                     colors: {
-                        'snow-white': '#F0FFFF',        // 雪白色/極淺藍
-                        'ice-blue': '#B3E5FC',          // 冰川藍
-                        'light-snow-blue': '#E5F3F7',   // 整個頁面柔和淺藍底色
-                        'deep-sea-blue': '#01579B',     // 深海藍 (文字/強調)
-                        'accent-yellow': '#FFD54F',     // 溫暖黃 (按鈕/點綴)
-                        'soft-gray': '#F5F5F5'          // 背景灰
+                        'snow-white': '#F0FFFF',
+                        'ice-blue': '#B3E5FC',
+                        'light-snow-blue': '#E5F3F7',
+                        'deep-sea-blue': '#01579B',
+                        'accent-yellow': '#FFD54F',
+                        'soft-gray': '#F5F5F5'
                     }
                 }
             }
@@ -36,7 +34,6 @@
             font-family: 'Noto Sans TC', sans-serif;
             color: #334155;
         }
-
         .app-container {
             max-width: 480px;
             margin: 0 auto;
@@ -46,19 +43,15 @@
             position: relative;
             padding-bottom: 90px;
         }
-
         .header-bg {
             background-color: #ffffff; 
-            padding: 0; 
             position: relative;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
             border-bottom-left-radius: 35px; 
             border-bottom-right-radius: 35px;
             z-index: 10; 
-            padding-bottom: 0px; 
         }
-        
         .header-image-container {
             width: 100%;
             height: 250px; 
@@ -67,15 +60,12 @@
             border-bottom-left-radius: 35px; 
             border-bottom-right-radius: 35px;
         }
-        
         .header-image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover; 
             display: block; 
         }
-        
-        /* 櫻花飄落效果 */
         .snow-layer {
             position: absolute;
             top: 0;
@@ -88,12 +78,7 @@
             animation: snowfall 10s linear infinite;
             z-index: 5;
         }
-
-        @keyframes snowfall {
-            to {
-                background-position: 100px 100px;
-            }
-        }
+        @keyframes snowfall { to { background-position: 100px 100px; } }
         
         .side-tab-bar {
             position: absolute;
@@ -104,7 +89,6 @@
             flex-direction: row;
             gap: 8px; 
         }
-        
         .tab-button {
             width: 40px; 
             height: 40px;
@@ -116,61 +100,60 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
             transition: all 0.2s ease;
         }
-        
         .tab-button.active {
             background-color: #01579B; 
             color: #ffffff;
             box-shadow: 0 6px 15px rgba(1, 87, 155, 0.4); 
             transform: scale(1.05);
         }
-        
         .tab-button:not(.active) {
             background-color: #ffffff;
             color: #B3E5FC; 
         }
-
-        .app-main {
-            padding-top: 25px !important; 
+        .app-main { padding-top: 25px !important; position: relative; z-index: 5; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .card-shadow { box-shadow: 0 4px 20px rgba(179, 229, 252, 0.3); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .animate-fade-in { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fab-shadow { box-shadow: 0 4px 15px rgba(255, 213, 79, 0.5); }
+        .note-content { white-space: pre-wrap; }
+        .date-selector-sticky { background-color: #ffffff; border-bottom: 1px solid #f0f0f0; z-index: 20; top: 0; }
+        
+        /* 交通區塊樣式 */
+        .transport-connector {
             position: relative;
-            z-index: 5;
+            padding-left: 2rem;
+            padding-bottom: 0.5rem;
+            padding-top: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
+        .transport-line {
+            position: absolute;
+            left: 1.5rem;
+            top: -0.75rem;
+            bottom: 0;
+            width: 2px;
+            background-color: #e2e8f0;
+            z-index: 0;
         }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none; 
+        .transport-info-box {
+            background-color: rgba(241, 245, 249, 0.7);
+            border-radius: 999px;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            max-width: 80%;
         }
-
-        .card-shadow {
-            box-shadow: 0 4px 20px rgba(179, 229, 252, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.4s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fab-shadow {
-            box-shadow: 0 4px 15px rgba(255, 213, 79, 0.5);
-        }
-
-        /* 備註內容樣式：移除高度限制，只保留換行 */
-        .note-content {
-            white-space: pre-wrap; 
-        }
-        
-        .date-selector-sticky {
-            background-color: #ffffff;
-            border-bottom: 1px solid #f0f0f0; 
-            z-index: 20; 
-            top: 0; 
+        .transport-info-box:hover {
+            background-color: #e0f2fe;
+            color: #0369a1;
         }
     </style>
 </head>
@@ -182,7 +165,6 @@
         <div class="header-image-container">
             <img src="https://www.mototoursjapan.com/dcms_media/image/Ise%20Kii%20Peninsula%E3%83%A1%E3%82%A4%E3%83%B3%EF%BC%881500x750%EF%BC%89.jpg" alt="關西之旅">
         </div>
-        
         <div class="snow-layer"></div> 
         
         <div class="side-tab-bar">
@@ -200,7 +182,6 @@
         </div>
     </div>
 
-    
     <main class="p-4 app-main">
         
         <div v-if="currentTab === 'itinerary'" class="animate-fade-in">
@@ -209,9 +190,7 @@
                 <div v-for="(day, index) in dates" :key="index" 
                      @click="selectedDateIndex = index"
                      class="snap-center flex-shrink-0 min-w-[58px] h-[68px] rounded-xl flex flex-col items-center justify-center cursor-pointer transition-all duration-300 border-2 shadow-sm"
-                     :class="selectedDateIndex === index ?
-'bg-deep-sea-blue text-white border-deep-sea-blue shadow-lg scale-105' : 'bg-white text-slate-400 border-white hover:bg-soft-gray'">
-                    
+                     :class="selectedDateIndex === index ? 'bg-deep-sea-blue text-white border-deep-sea-blue shadow-lg scale-105' : 'bg-white text-slate-400 border-white hover:bg-soft-gray'">
                     <span class="text-sm font-bold uppercase tracking-wider">{{ day.weekday }}</span> 
                     <span class="text-xs font-medium opacity-70">{{ day.date }}</span> 
                 </div>
@@ -220,7 +199,6 @@
             <div v-if="weatherData[selectedDateIndex]" class="mb-4 bg-snow-white border border-ice-blue rounded-2xl p-4 flex justify-between items-center shadow-md">
                 <div class="flex items-start text-deep-sea-blue space-x-4">
                     <i :class="getWeatherIcon(weatherData[selectedDateIndex].condition)" class="text-5xl text-blue-500"></i>
-                    
                     <div class="pt-1">
                         <span class="text-3xl font-extrabold leading-none">{{ weatherData[selectedDateIndex].temp.split('/')[0] }}°</span>
                         <span class="text-sm font-light text-slate-500 ml-1">/ {{ weatherData[selectedDateIndex].temp.split('/')[1] }}°C</span>
@@ -229,7 +207,6 @@
                 </div>
                 <div class="text-right text-xs text-slate-600 pl-3">
                     <span class="font-bold block text-slate-700">{{ getWeatherDescription(weatherData[selectedDateIndex].condition) }}</span>
-                    
                     <span v-if="dates[selectedDateIndex].hasCar" class="mt-1 block text-deep-sea-blue font-bold">
                         <i class="fa-solid fa-car-side mr-1 text-accent-yellow"></i> 租車日
                     </span>
@@ -240,18 +217,22 @@
             <div class="space-y-4">
                 <div v-for="(item, idx) in currentItinerary" :key="item.id" class="relative group">
                     
-                    <div v-if="idx > 0" class="pl-8 pb-2 flex items-center text-xs text-slate-400">
-                        <div class="h-6 w-0.5 bg-slate-200 absolute left-6 -top-3"></div>
+                    <div v-if="idx > 0" class="transport-connector">
+                        <div class="transport-line"></div>
                         
-                        <i :class="getTransportIcon(currentItinerary[idx].transportType)" 
-                            class="mr-2 text-slate-300 cursor-pointer hover:text-deep-sea-blue transition-colors" 
-                           @click="openMapDirections(currentItinerary[idx - 1], item)">
-                        </i>
-                        <span class="font-bold">{{ item.travelTime || '移動' }}</span>
+                        <div class="transport-info-box z-10" @click="openMapDirections(currentItinerary[idx - 1], item)">
+                            <i :class="getTransportIcon(item.transportType || 'walk')" class="mr-2 text-deep-sea-blue"></i>
+                            <span class="font-bold mr-1">{{ item.transportTime || '移動' }}</span>
+                            <span v-if="item.transportDetail" class="text-slate-400 mx-1">.</span>
+                            <span v-if="item.transportDetail" class="truncate max-w-[100px]">{{ item.transportDetail }}</span>
+                        </div>
+
+                        <button @click.stop="openTransportEdit(item)" class="text-[10px] bg-slate-100 px-2 py-1 rounded-md text-slate-500 hover:bg-deep-sea-blue hover:text-white transition-colors border border-slate-200 shadow-sm z-20">
+                            <i class="fa-solid fa-pen mr-1"></i>修改
+                        </button>
                     </div>
                     
-                    <div class="bg-white rounded-3xl p-5 card-shadow relative overflow-hidden flex items-start border border-ice-blue/50 min-h-[150px]">
-                        
+                    <div class="bg-white rounded-3xl p-5 card-shadow relative overflow-hidden flex items-start border border-ice-blue/50 z-10">
                         <div class="mr-4 flex flex-col items-center min-w-[50px] flex-shrink-0">
                             <div class="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-md mb-1 text-base" :class="getCategoryColor(item.category)">
                                 <i :class="getCategoryIcon(item.category)"></i>
@@ -259,7 +240,7 @@
                             <span v-if="item.startTime" class="text-xs font-bold text-slate-600 mt-1">{{ item.startTime }}</span>
                         </div>
 
-                        <div class="flex-1 pb-1">
+                        <div class="flex-1 pb-1 overflow-hidden">
                             <h3 class="text-lg font-bold text-slate-800 mb-1 leading-tight pr-8">{{ item.name }}</h3>
                             
                             <div class="text-sm text-slate-500 space-y-1.5 mt-2">
@@ -272,21 +253,29 @@
                                 <p class="text-slate-600 font-bold mb-1 flex items-center">
                                     <i class="fa-solid fa-highlighter text-accent-yellow mr-2"></i> 備註
                                 </p>
-                                <div class="note-content text-slate-600 leading-relaxed">
-                                    {{ item.note }}
-                                </div>
+                                <div class="note-content text-slate-600 leading-relaxed">{{ item.note }}</div>
+                            </div>
+
+                            <div v-if="item.pdfFile" class="mt-2">
+                                <a :href="item.pdfFile" :download="item.pdfName || 'attachment.pdf'" class="flex items-center text-xs bg-red-50 text-red-600 p-2 rounded-lg border border-red-100 hover:bg-red-100 transition-colors w-fit">
+                                    <i class="fa-solid fa-file-pdf mr-2 text-lg"></i>
+                                    <div class="flex flex-col">
+                                        <span class="font-bold">附件 PDF</span>
+                                        <span class="text-[9px] opacity-70 truncate max-w-[150px]">{{ item.pdfName || '點擊下載' }}</span>
+                                    </div>
+                                </a>
                             </div>
                         </div>
 
                         <div class="absolute top-3 right-3 flex flex-col space-y-1">
-                            <button @click.stop="openMap(item.address || item.name)" class="w-7 h-7 bg-ice-blue text-deep-sea-blue rounded-full flex items-center justify-center text-xs hover:bg-deep-sea-blue hover:text-white transition-colors" title="Google Maps 導航">
-                                <i class="fa-solid fa-location-arrow"></i>
-                            </button>
                             <button v-if="idx > 0" @click.stop="moveItineraryUp(item.id)" class="w-7 h-7 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center text-xs hover:bg-slate-300 transition-colors" title="上移">
                                 <i class="fa-solid fa-arrow-up"></i>
                             </button>
                             <button v-if="idx < currentItinerary.length - 1" @click.stop="moveItineraryDown(item.id)" class="w-7 h-7 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center text-xs hover:bg-slate-300 transition-colors" title="下移">
                                 <i class="fa-solid fa-arrow-down"></i>
+                            </button>
+                            <button @click.stop="openMap(item.address || item.name)" class="w-7 h-7 bg-ice-blue text-deep-sea-blue rounded-full flex items-center justify-center text-xs hover:bg-deep-sea-blue hover:text-white transition-colors" title="Google Maps 導航">
+                                <i class="fa-solid fa-location-arrow"></i>
                             </button>
                             <button @click.stop="editItem(item)" class="w-7 h-7 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center text-xs hover:bg-slate-200 transition-colors" title="編輯行程">
                                 <i class="fa-solid fa-pencil"></i>
@@ -373,7 +362,7 @@
                 </ul>
             </div>
             
-            <div class="bg-white rounded-3xl p-5 card-shadow border border-slate-100">
+            <div class="bg-white rounded-3xl p-5 card-shadow border border-slate-100 mt-6">
                 <h3 class="font-bold text-slate-800 mb-3 border-b border-slate-100 pb-2 flex items-center justify-between">
                     <span><i class="fa-solid fa-floppy-disk text-emerald-500 mr-2"></i> 資料備份與管理</span>
                     <span class="text-xs text-slate-400 font-normal">自動儲存開啟中</span>
@@ -383,12 +372,10 @@
                         <i class="fa-solid fa-file-export text-xl mb-1"></i>
                         <span class="text-xs font-bold">匯出備份</span>
                     </button>
-                    
                     <button @click="triggerImport" class="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-blue-600 transition-colors">
                         <i class="fa-solid fa-file-import text-xl mb-1"></i>
                         <span class="text-xs font-bold">匯入備份</span>
                     </button>
-                    
                     <button @click="resetData" class="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 transition-colors">
                         <i class="fa-solid fa-rotate-right text-xl mb-1"></i>
                         <span class="text-xs font-bold">重置預設</span>
@@ -399,16 +386,14 @@
                     提示：資料會自動儲存在此瀏覽器中。若要更換裝置，請使用「匯出」將資料存成檔案，再到新裝置「匯入」。
                 </p>
             </div>
-            
-            </div>
-        
-        </main>
+        </div>
 
+    </main>
  
     <button v-if="currentTab === 'itinerary'" @click="handleAddClick" class="fixed bottom-6 right-6 w-14 h-14 bg-accent-yellow rounded-full fab-shadow text-deep-sea-blue text-2xl flex items-center justify-center hover:scale-110 transition-transform z-40">
         <i class="fa-solid fa-plus"></i>
     </button>
-
+    
     <div v-if="showItineraryModal" class="fixed inset-0 bg-deep-sea-blue/40 z-50 flex items-center justify-center p-6 backdrop-blur-sm animate-fade-in">
         <div class="bg-white rounded-3xl w-full max-w-sm p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
             <h3 class="font-bold text-lg mb-5 text-center text-slate-800">{{ isEditMode ? '編輯行程' : '新增行程' }}</h3>
@@ -427,21 +412,25 @@
                 <input v-model="newItinerary.address" placeholder="地址/地點 (Google Map 搜尋用)" class="w-full bg-slate-50 rounded-xl p-3 text-sm outline-none focus:ring-2 focus:ring-deep-sea-blue">
                 <div class="grid grid-cols-2 gap-3">
                     <input v-model="newItinerary.startTime" type="text" placeholder="時間 (e.g. 09:30)" class="bg-slate-50 rounded-xl p-3 text-sm outline-none">
-                    <select v-model="newItinerary.transportType" class="bg-slate-50 rounded-xl p-3 text-sm outline-none">
-                        <option value="walk">步行</option>
-                        <option value="car">自駕</option>
-                        <option value="bus">巴士</option>
-                        <option value="public">地鐵/JR</option>
-                        <option value="flight">飛機</option>
-                        <option value="other">其他</option>
-                    </select>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <input v-model="newItinerary.travelTime" type="text" placeholder="車程/移動時間" class="bg-slate-50 rounded-xl p-3 text-sm outline-none">
                     <input v-model="newItinerary.hours" type="text" placeholder="營業時間" class="bg-slate-50 rounded-xl p-3 text-sm outline-none">
                 </div>
                 <input v-model="newItinerary.price" type="text" placeholder="門票/費用" class="w-full bg-slate-50 rounded-xl p-3 text-sm outline-none focus:ring-2 focus:ring-deep-sea-blue">
                 <textarea v-model="newItinerary.note" placeholder="備註/細節" rows="3" class="w-full bg-slate-50 rounded-xl p-3 text-sm outline-none focus:ring-2 focus:ring-deep-sea-blue"></textarea>
+                
+                <div class="border-t border-slate-100 pt-3">
+                    <label class="block text-xs font-bold text-slate-500 mb-2">附件 PDF</label>
+                    <input type="file" accept="application/pdf" @change="handlePdfUpload" class="block w-full text-xs text-slate-500
+                      file:mr-4 file:py-2 file:px-4
+                      file:rounded-full file:border-0
+                      file:text-xs file:font-semibold
+                      file:bg-ice-blue file:text-deep-sea-blue
+                      hover:file:bg-deep-sea-blue hover:file:text-white
+                    "/>
+                    <div v-if="newItinerary.pdfName" class="flex items-center justify-between bg-slate-50 p-2 mt-2 rounded">
+                        <span class="text-xs truncate max-w-[200px] text-slate-600"><i class="fa-solid fa-file-pdf text-red-500 mr-1"></i> {{ newItinerary.pdfName }}</span>
+                        <button @click="newItinerary.pdfFile = null; newItinerary.pdfName = null" class="text-xs text-red-400">移除</button>
+                    </div>
+                </div>
             </div>
             <div class="flex space-x-3 mt-6">
                 <button @click="showItineraryModal = false; isEditMode = false" :class="isEditMode ? 'w-1/3' : 'flex-1'" class="py-3 rounded-xl bg-slate-100 text-slate-500 font-bold text-sm">取消</button>
@@ -455,19 +444,46 @@
         </div>
     </div>
 
+    <div v-if="showTransportModal" class="fixed inset-0 bg-deep-sea-blue/40 z-50 flex items-center justify-center p-6 backdrop-blur-sm animate-fade-in">
+        <div class="bg-white rounded-3xl w-full max-w-sm p-6 shadow-2xl">
+            <h3 class="font-bold text-lg mb-5 text-center text-slate-800">編輯交通資訊</h3>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-xs font-bold text-slate-500 mb-1 block">交通方式</label>
+                    <div class="grid grid-cols-4 gap-2">
+                        <button v-for="type in ['walk', 'public', 'bus', 'car', 'flight', 'other']" 
+                                @click="editingTransport.transportType = type"
+                                :class="editingTransport.transportType === type ? 'bg-deep-sea-blue text-white' : 'bg-slate-50 text-slate-400'"
+                                class="p-2 rounded-lg text-lg transition-colors">
+                            <i :class="getTransportIcon(type)"></i>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-slate-500 mb-1 block">移動時間 (例如: 30m)</label>
+                    <input v-model="editingTransport.transportTime" placeholder="時間" class="w-full bg-slate-50 rounded-xl p-3 text-sm outline-none focus:ring-2 focus:ring-deep-sea-blue">
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-slate-500 mb-1 block">詳細資訊 (顯示在時間後方)</label>
+                    <input v-model="editingTransport.transportDetail" placeholder="例: 搭乘JR京都線" class="w-full bg-slate-50 rounded-xl p-3 text-sm outline-none focus:ring-2 focus:ring-deep-sea-blue">
+                </div>
+            </div>
+            <div class="flex space-x-3 mt-6">
+                <button @click="showTransportModal = false" class="flex-1 py-3 rounded-xl bg-slate-100 text-slate-500 font-bold text-sm">取消</button>
+                <button @click="saveTransportInfo" class="flex-1 py-3 rounded-xl bg-deep-sea-blue text-white font-bold text-sm shadow-lg shadow-deep-sea-blue/30">儲存</button>
+            </div>
+        </div>
+    </div>
+
 
 </div> <script>
     const { createApp, ref, computed, onMounted, watch } = Vue
 
     createApp({
         setup() {
-            // LocalStorage Key
-            const STORAGE_KEY = 'kansai_trip_data_2026_lite'; // 修改 key 以避免混淆舊資料
-
-            // 匯率基準
+            const STORAGE_KEY = 'kansai_trip_data_2026_v2';
             const EXCHANGE_RATE = 0.215;
 
-            // 標籤顏色與圖示定義
             const CATEGORY_MAP = {
                 sightseeing: { color: 'bg-green-500', icon: 'fa-solid fa-camera' },
                 food: { color: 'bg-red-500', icon: 'fa-solid fa-utensils' },
@@ -483,11 +499,8 @@
                 sightseeing: '景點', food: '飲食', shopping: '購物', accommodation: '住宿', flight: '航班', transport: '交通', ticket: '門票', other: '其他', stay: '住宿'
             };
 
-            // 當前頁面
             const currentTab = ref('itinerary');
 
-            // --- 資料定義：2026 關西之旅 (3/28 - 4/5) ---
-            
             const dates = ref([
                 { date: '3/28', weekday: '六', hasCar: false },
                 { date: '3/29', weekday: '日', hasCar: false },
@@ -505,121 +518,57 @@
                 { name: 'Via Inn Prime 心齋橋', date: '3/31 - 4/5 (5晚)', phone: '', address: '大阪市中央區' },
             ]);
             
-            // 預設行程資料 (對應 dates 索引)
+            // 行程資料結構：每個項目包含「到達此處」的交通資訊
+            // transportType, transportTime, transportDetail 為此項目「之前」的交通方式
             const defaultItineraryData = [
                 // Day 1: 3/28 (六)
                 [
-                    { id: 101, name: '貓窩 → 高雄機場', category: 'transport', startTime: '05:25', address: '高雄國際機場', note: '早起出發前往機場', hours: null, price: null, transportType: 'car', travelTime: '1h', isNoteExpanded: false },
-                    { id: 102, name: '高雄機場 (KHH) 入關', category: 'flight', startTime: '06:25', address: '高雄國際機場', note: '辦理登機與入關手續', hours: null, price: null, transportType: 'walk', travelTime: null, isNoteExpanded: false },
-                    { id: 103, name: '飛往關西機場', category: 'flight', startTime: '07:55', address: '關西國際機場 (KIX)', note: '預計 10:55 抵達關西', hours: null, price: null, transportType: 'flight', travelTime: '3h', isNoteExpanded: false },
-                    { id: 104, name: '關西機場出關', category: 'transport', startTime: '10:55', address: '關西國際機場', note: '入境審查、領取行李', hours: null, price: null, transportType: 'walk', travelTime: '1h35m', isNoteExpanded: false },
-                    { id: 105, name: '關西機場服務中心', category: 'other', startTime: '12:30', address: '關西機場服務中心', note: '領取/購買周遊券、票券等', hours: null, price: null, transportType: 'walk', travelTime: '1h', isNoteExpanded: false },
-                    { id: 106, name: '前往京都車站', category: 'transport', startTime: '13:30', address: '京都車站', note: '搭乘 Haruka 或巴士', hours: null, price: null, transportType: 'public', travelTime: '1h30m', isNoteExpanded: false },
-                    { id: 107, name: '京都法華俱樂部酒店 Check-in', category: 'accommodation', startTime: '15:00', address: '京都法華俱樂部酒店', note: '辦理入住手續', hours: null, price: null, transportType: 'walk', travelTime: '10m', isNoteExpanded: false },
-                    { id: 108, name: '四條河原町', category: 'shopping', startTime: '~16:00', address: '四条河原町', note: '逛街、晚餐', hours: null, price: null, transportType: 'public', travelTime: '10m', isNoteExpanded: false },
-                    { id: 109, name: '返回飯店', category: 'accommodation', startTime: '20:00', address: '京都法華俱樂部酒店', note: '休息', hours: null, price: null, transportType: 'public', travelTime: '20m', isNoteExpanded: false },
+                    { id: 101, name: '貓窩 → 高雄機場', category: 'transport', startTime: '05:25', address: '高雄國際機場', note: '早起出發前往機場', hours: null, price: null },
+                    { id: 102, name: '高雄機場 (KHH) 入關', category: 'flight', startTime: '06:25', address: '高雄國際機場', note: '辦理登機與入關手續', hours: null, price: null, transportType: 'car', transportTime: '1h', transportDetail: '開車前往' },
+                    { id: 103, name: '飛往關西機場', category: 'flight', startTime: '07:55', address: '關西國際機場 (KIX)', note: '預計 10:55 抵達關西', hours: null, price: null, transportType: 'walk', transportTime: '5m', transportDetail: '步行' },
+                    { id: 104, name: '關西機場出關', category: 'transport', startTime: '10:55', address: '關西國際機場', note: '入境審查、領取行李', hours: null, price: null, transportType: 'flight', transportTime: '3h', transportDetail: '飛行時間' },
+                    { id: 105, name: '關西機場服務中心', category: 'other', startTime: '12:30', address: '關西機場服務中心', note: '領取/購買周遊券、票券等', hours: null, price: null, transportType: 'walk', transportTime: '1h35m', transportDetail: '出關檢查' },
+                    { id: 106, name: '前往京都車站', category: 'transport', startTime: '13:30', address: '京都車站', note: '搭乘 Haruka 或巴士', hours: null, price: null, transportType: 'walk', transportTime: '1h', transportDetail: '機場移動' },
+                    { id: 107, name: '京都法華俱樂部酒店 Check-in', category: 'accommodation', startTime: '15:00', address: '京都法華俱樂部酒店', note: '辦理入住手續', hours: null, price: null, transportType: 'public', transportTime: '1h30m', transportDetail: 'Haruka' },
                 ],
-                // Day 2: 3/29 (日)
+                // Day 2
                 [
-                    { id: 201, name: '前往吉卜力公園', category: 'transport', startTime: '06:45', address: '吉卜力公園', note: '京都車站出發', hours: null, price: null, transportType: 'public', travelTime: '2h15m', isNoteExpanded: false },
-                    { id: 202, name: '吉卜力公園 (Ghibli Park)', category: 'sightseeing', startTime: '09:00', address: '愛知縣長久手市', note: '全日遊玩', hours: '09:00 - 17:00', price: '門票', transportType: 'walk', travelTime: null, isNoteExpanded: false },
-                    { id: 203, name: '返回京都飯店', category: 'accommodation', startTime: '17:00', address: '京都法華俱樂部酒店', note: '結束行程返回', hours: null, price: null, transportType: 'public', travelTime: '2h30m', isNoteExpanded: false },
-                ],
-                // Day 3: 3/30 (一)
-                [
-                    { id: 301, name: '伏見十石舟', category: 'sightseeing', startTime: '09:00', address: '伏見十石舟', note: '乘船賞櫻 (需預約)', hours: null, price: '船票', transportType: 'public', travelTime: '30m', isNoteExpanded: false },
-                    { id: 302, name: '伏見稻荷大社＋千本鳥居', category: 'sightseeing', startTime: '~11:00', address: '伏見稻荷大社', note: '著名景點', hours: null, price: '免費', transportType: 'walk', travelTime: '20m', isNoteExpanded: false },
-                    { id: 303, name: '二條城 NAKED 櫻花祭', category: 'sightseeing', startTime: '~14:00', address: '二条城', note: '賞櫻與光雕秀', hours: null, price: '門票', transportType: 'public', travelTime: '40m', isNoteExpanded: false },
-                    { id: 304, name: '返回飯店', category: 'accommodation', startTime: '~18:00', address: '京都法華俱樂部酒店', note: '休息', hours: null, price: null, transportType: 'public', travelTime: '30m', isNoteExpanded: false },
-                ],
-                // Day 4: 3/31 (二)
-                [
-                    { id: 401, name: '飯店退房＋寄放行李', category: 'accommodation', startTime: '08:00', address: '京都法華俱樂部酒店', note: '10:00 前完成', hours: null, price: null, transportType: 'walk', travelTime: null, isNoteExpanded: false },
-                    { id: 402, name: '前往和服店', category: 'transport', startTime: '08:00', address: 'Gion Coffee Nanafuku', note: '先吃早餐/咖啡', hours: null, price: null, transportType: 'public', travelTime: '30m', isNoteExpanded: false },
-                    { id: 403, name: 'Gion Coffee Nanafuku', category: 'food', startTime: '08:30', address: 'Gion Coffee Nanafuku', note: '早餐', hours: null, price: null, transportType: 'walk', travelTime: null, isNoteExpanded: false },
-                    { id: 404, name: '和服租借 (ookini 八坂神社店)', category: 'shopping', startTime: '09:30', address: 'ookini Kimono Rental Yasaka Shrine', note: '換裝時間約 1.5 小時', hours: null, price: '租借費', transportType: 'walk', travelTime: '5m', isNoteExpanded: false },
-                    { id: 405, name: '和服拍攝', category: 'sightseeing', startTime: '11:40', address: '八坂神社周邊', note: '拍攝時間 1 小時', hours: null, price: null, transportType: 'walk', travelTime: null, isNoteExpanded: false },
-                    { id: 406, name: '二年坂→三年坂→清水坂', category: 'sightseeing', startTime: '13:00', address: '清水坂', note: '散步逛街', hours: null, price: null, transportType: 'walk', travelTime: '10m', isNoteExpanded: false },
-                    { id: 407, name: '清水寺', category: 'sightseeing', startTime: '15:30', address: '清水寺', note: '參拜', hours: null, price: '門票', transportType: 'walk', travelTime: '10m', isNoteExpanded: false },
-                    { id: 408, name: '和服歸還 (ookini 清水寺店)', category: 'other', startTime: '17:30', address: 'ookini Kimono Rental Kiyomizu Temple', note: '歸還和服', hours: null, price: null, transportType: 'walk', travelTime: '10m', isNoteExpanded: false },
-                    { id: 409, name: '回京都車站拿行李', category: 'transport', startTime: '18:00', address: '京都車站', note: '取回行李', hours: null, price: null, transportType: 'public', travelTime: '30m', isNoteExpanded: false },
-                ],
-                // Day 5: 4/1 (三)
-                [
-                    { id: 501, name: '前往環球影城', category: 'transport', startTime: '06:45', address: '環球影城', note: '早起出發', hours: null, price: null, transportType: 'public', travelTime: '40m', isNoteExpanded: false },
-                    { id: 502, name: '大阪環球影城 (USJ)', category: 'sightseeing', startTime: '07:30', address: 'USJ', note: '全日遊玩', hours: '07:30 - 22:00', price: '門票/快速通關', transportType: 'walk', travelTime: null, isNoteExpanded: false },
-                    { id: 503, name: '返回心齋橋飯店', category: 'accommodation', startTime: '22:00', address: 'Via Inn Prime 心齋橋', note: '休息', hours: null, price: null, transportType: 'public', travelTime: '40m', isNoteExpanded: false },
-                ],
-                // Day 6: 4/2 (四)
-                [
-                    { id: 601, name: '海遊館', category: 'sightseeing', startTime: '09:00', address: '海遊館', note: '欣賞海洋生物', hours: null, price: '門票', transportType: 'public', travelTime: '30m', isNoteExpanded: false },
-                    { id: 602, name: '心齋橋逛街', category: 'shopping', startTime: '12:00', address: '心齋橋筋商店街', note: '午餐與購物', hours: null, price: null, transportType: 'public', travelTime: '30m', isNoteExpanded: false },
-                    { id: 603, name: '寶可夢咖啡廳', category: 'food', startTime: '14:00', address: 'Pokemon Cafe Osaka', note: '需預約', hours: null, price: null, transportType: 'walk', travelTime: '5m', isNoteExpanded: false },
-                    { id: 604, name: '寶可夢中心 大阪店 DX', category: 'shopping', startTime: '15:30', address: '大丸心齋橋店', note: '購買周邊', hours: null, price: null, transportType: 'walk', travelTime: '0m', isNoteExpanded: false },
-                    { id: 605, name: '道頓堀', category: 'sightseeing', startTime: '17:00', address: '道頓堀', note: '跑跑人看板、晚餐', hours: null, price: null, transportType: 'walk', travelTime: '10m', isNoteExpanded: false },
-                    { id: 606, name: '大丸梅田店', category: 'shopping', startTime: '19:00', address: '大丸梅田店', note: '任天堂大阪', hours: null, price: null, transportType: 'public', travelTime: '15m', isNoteExpanded: false },
-                    { id: 607, name: '梅田空中庭園', category: 'sightseeing', startTime: '20:30', address: '梅田藍天大廈', note: '看夜景', hours: null, price: '門票', transportType: 'walk', travelTime: '15m', isNoteExpanded: false },
-                ],
-                // Day 7: 4/3 (五)
-                [
-                    { id: 701, name: '前往箕面萱野', category: 'transport', startTime: '09:00', address: '箕面萱野站', note: '搭乘地鐵', hours: null, price: null, transportType: 'public', travelTime: '1h', isNoteExpanded: false },
-                    { id: 702, name: '前往勝尾寺', category: 'transport', startTime: '10:00', address: '勝尾寺', note: '轉乘巴士', hours: null, price: null, transportType: 'bus', travelTime: '30m', isNoteExpanded: false },
-                    { id: 703, name: '勝尾寺', category: 'sightseeing', startTime: '10:30', address: '勝尾寺', note: '達摩寺廟', hours: null, price: '門票', transportType: 'walk', travelTime: null, isNoteExpanded: false },
-                    { id: 704, name: '返回箕面萱野', category: 'transport', startTime: '12:20', address: '箕面萱野', note: '搭乘巴士', hours: null, price: null, transportType: 'bus', travelTime: '30m', isNoteExpanded: false },
-                    { id: 705, name: 'Q’s MALL', category: 'shopping', startTime: '12:50', address: 'Minoh Q\'s Mall', note: '午餐與逛街', hours: null, price: null, transportType: 'walk', travelTime: '5m', isNoteExpanded: false },
-                    { id: 706, name: '前往大阪城公園', category: 'transport', startTime: '13:50', address: '大阪城公園', note: '移動', hours: null, price: null, transportType: 'public', travelTime: '50m', isNoteExpanded: false },
-                    { id: 707, name: '大阪城公園', category: 'sightseeing', startTime: '14:40', address: '大阪城公園', note: '散步', hours: null, price: '免費', transportType: 'walk', travelTime: null, isNoteExpanded: false },
-                    { id: 708, name: '大阪城 BBQ', category: 'food', startTime: '16:40', address: '大阪城公園', note: '晚餐', hours: null, price: null, transportType: 'walk', travelTime: '10m', isNoteExpanded: false },
-                    { id: 709, name: '西之丸庭園', category: 'sightseeing', startTime: '18:40', address: '西之丸庭園', note: '賞夜櫻 (視花況)', hours: null, price: '門票', transportType: 'walk', travelTime: '10m', isNoteExpanded: false },
-                    { id: 710, name: '返回飯店', category: 'accommodation', startTime: '20:30', address: 'Via Inn Prime 心齋橋', note: '休息', hours: null, price: null, transportType: 'public', travelTime: '30m', isNoteExpanded: false },
-                ],
-                // Day 8: 4/4 (六)
-                [
-                    { id: 801, name: '前往近鐵奈良', category: 'transport', startTime: '09:00', address: '近鐵奈良站', note: '大阪難波出發', hours: null, price: null, transportType: 'public', travelTime: '40m', isNoteExpanded: false },
-                    { id: 802, name: '奈良公園', category: 'sightseeing', startTime: '10:00', address: '奈良公園', note: '餵鹿', hours: null, price: '免費 (鹿仙貝¥200)', transportType: 'walk', travelTime: '10m', isNoteExpanded: false },
-                    { id: 803, name: '春日大社', category: 'sightseeing', startTime: '11:30', address: '春日大社', note: '參拜', hours: null, price: '門票', transportType: 'walk', travelTime: '20m', isNoteExpanded: false },
-                    { id: 804, name: '東大寺', category: 'sightseeing', startTime: '14:00', address: '東大寺', note: '大佛', hours: null, price: '門票', transportType: 'walk', travelTime: '20m', isNoteExpanded: false },
-                    { id: 805, name: '返回大阪飯店', category: 'accommodation', startTime: '17:00', address: 'Via Inn Prime 心齋橋', note: '晚餐、整理行李', hours: null, price: null, transportType: 'public', travelTime: '1h', isNoteExpanded: false },
-                ],
-                // Day 9: 4/5 (日)
-                [
-                    { id: 901, name: '飯店退房', category: 'accommodation', startTime: '07:30', address: 'Via Inn Prime 心齋橋', note: '退房前往機場', hours: null, price: null, transportType: 'walk', travelTime: null, isNoteExpanded: false },
-                    { id: 902, name: '前往關西機場', category: 'transport', startTime: '07:30', address: '關西國際機場', note: '搭乘南海電鐵', hours: null, price: null, transportType: 'public', travelTime: '1h30m', isNoteExpanded: false },
-                    { id: 903, name: '關西機場入關', category: 'flight', startTime: '09:00', address: '關西國際機場 第二航廈', note: '辦理登機', hours: null, price: null, transportType: 'walk', travelTime: null, isNoteExpanded: false },
-                    { id: 904, name: '飛往高雄', category: 'flight', startTime: '10:45', address: '高雄國際機場 (KHH)', note: '預計 13:10 抵達', hours: null, price: null, transportType: 'flight', travelTime: '3h25m', isNoteExpanded: false },
-                ],
+                    { id: 201, name: '前往吉卜力公園', category: 'transport', startTime: '06:45', address: '吉卜力公園', note: '京都車站出發', hours: null, price: null },
+                    { id: 202, name: '吉卜力公園 (Ghibli Park)', category: 'sightseeing', startTime: '09:00', address: '愛知縣長久手市', note: '全日遊玩', hours: '09:00 - 17:00', price: '門票', transportType: 'public', transportTime: '2h15m', transportDetail: '新幹線+地鐵' },
+                ]
             ];
 
             const itineraryData = ref(JSON.parse(JSON.stringify(defaultItineraryData)));
 
-            // 預設天氣資訊 (春季 3月底-4月初)
             const weatherData = ref([
-                { condition: 'cloudy', temp: '15/8', feel: '12' },  // 3/28
-                { condition: 'sunny', temp: '16/9', feel: '15' },   // 3/29
-                { condition: 'sunny', temp: '18/10', feel: '17' },  // 3/30
-                { condition: 'sunny', temp: '19/11', feel: '18' },  // 3/31
-                { condition: 'cloudy', temp: '17/10', feel: '16' }, // 4/1
-                { condition: 'rain', temp: '15/9', feel: '13' },    // 4/2
-                { condition: 'sunny', temp: '20/12', feel: '19' },  // 4/3
-                { condition: 'sunny', temp: '21/11', feel: '20' },  // 4/4
-                { condition: 'cloudy', temp: '18/10', feel: '17' }, // 4/5
+                { condition: 'cloudy', temp: '15/8', feel: '12' },
+                { condition: 'sunny', temp: '16/9', feel: '15' },
+                { condition: 'sunny', temp: '18/10', feel: '17' },
+                { condition: 'sunny', temp: '19/11', feel: '18' },
+                { condition: 'cloudy', temp: '17/10', feel: '16' },
+                { condition: 'rain', temp: '15/9', feel: '13' },
+                { condition: 'sunny', temp: '20/12', feel: '19' },
+                { condition: 'sunny', temp: '21/11', feel: '20' },
+                { condition: 'cloudy', temp: '18/10', feel: '17' },
             ]);
             
-            // --- 狀態控制 ---
             const selectedDateIndex = ref(0);
             const showItineraryModal = ref(false);
+            const showTransportModal = ref(false);
             const isEditMode = ref(false); 
             
-            // 新增/編輯行程狀態
+            // 行程編輯 State
             const newItinerary = ref({
-                id: null, name: '', category: 'sightseeing', startTime: '', hours: '', address: '', price: '', note: '', transportType: 'car', travelTime: '', isNoteExpanded: false
+                id: null, name: '', category: 'sightseeing', startTime: '', hours: '', address: '', price: '', note: '', pdfFile: null, pdfName: null
             });
 
-            // 貨幣轉換
+            // 交通編輯 State
+            const editingTransport = ref({
+                itemId: null, transportType: 'walk', transportTime: '', transportDetail: ''
+            });
+
             const currencyInput = ref(1000);
             const currencyResult = ref(0);
-            
-            // --- Computed Properties ---
             
             const currentItinerary = computed(() => {
                 if (!itineraryData.value[selectedDateIndex.value]) {
@@ -630,17 +579,14 @@
 
             // --- Methods ---
 
-            // ********** 核心功能：儲存與匯出入 **********
-
             const saveToStorage = () => {
-                const dataToSave = {
-                    itinerary: itineraryData.value,
-                    // 移除購物與花費儲存
-                };
                 try {
-                    localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(itineraryData.value));
                 } catch (e) {
                     console.error("Storage Error", e);
+                    if (e.name === 'QuotaExceededError') {
+                        alert("儲存失敗：檔案太大 (可能是 PDF 附件)。請移除部分附件。");
+                    }
                 }
             };
 
@@ -649,15 +595,13 @@
                 if (savedData) {
                     try {
                         const parsed = JSON.parse(savedData);
-                        if(parsed.itinerary) itineraryData.value = parsed.itinerary;
-                    } catch (e) {
-                        console.error("Error loading data", e);
-                    }
+                        if (parsed) itineraryData.value = parsed;
+                    } catch (e) { console.error(e); }
                 }
             };
 
             const resetData = () => {
-                if(confirm("確定要重置所有資料嗎？所有的行程修改都將被清除並恢復預設值。")) {
+                if(confirm("確定要重置所有資料嗎？所有的行程修改將被清除。")) {
                     localStorage.removeItem(STORAGE_KEY);
                     itineraryData.value = JSON.parse(JSON.stringify(defaultItineraryData));
                     alert("資料已重置。");
@@ -665,38 +609,28 @@
             };
 
             const exportData = () => {
-                const dataStr = JSON.stringify({
-                    itinerary: itineraryData.value,
-                    exportDate: new Date().toLocaleString()
-                }, null, 2);
-                
+                const dataStr = JSON.stringify(itineraryData.value, null, 2);
                 const blob = new Blob([dataStr], { type: "application/json" });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = `kansai_trip_backup_lite_${new Date().toISOString().slice(0,10)}.json`;
+                a.download = `kansai_trip_backup.json`;
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
             };
 
-            const triggerImport = () => {
-                document.getElementById('importFile').click();
-            };
+            const triggerImport = () => document.getElementById('importFile').click();
 
             const handleImport = (event) => {
                 const file = event.target.files[0];
                 if (!file) return;
-
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     try {
-                        const parsed = JSON.parse(e.target.result);
-                        if (confirm(`確定要匯入此備份嗎？\n備份時間: ${parsed.exportDate || '未知'}\n這將覆蓋目前的現有資料。`)) {
-                            if(parsed.itinerary) itineraryData.value = parsed.itinerary;
-                            alert("匯入成功！");
-                        }
+                        itineraryData.value = JSON.parse(e.target.result);
+                        alert("匯入成功！");
                     } catch (error) {
                         alert("匯入失敗：檔案格式錯誤");
                     }
@@ -705,40 +639,23 @@
                 reader.readAsText(file);
             };
 
-            // ********** 基礎功能 **********
-
             const calculateCurrency = () => {
                 currencyResult.value = Math.round(currencyInput.value * EXCHANGE_RATE);
-            };
-
-            const formatNumber = (num) => {
-                if (num === 0 || num === null || num === undefined) return '0';
-                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             };
 
             const getCategoryColor = (category) => CATEGORY_MAP[category]?.color || CATEGORY_MAP.other.color;
             const getCategoryIcon = (category) => CATEGORY_MAP[category]?.icon || CATEGORY_MAP.other.icon;
             const getWeatherIcon = (condition) => {
-                const map = {
-                    snow: 'fa-solid fa-snowflake',
-                    sunny: 'fa-solid fa-sun',
-                    cloudy: 'fa-solid fa-cloud',
-                    rain: 'fa-solid fa-cloud-showers-heavy'
-                };
+                const map = { snow: 'fa-solid fa-snowflake', sunny: 'fa-solid fa-sun', cloudy: 'fa-solid fa-cloud', rain: 'fa-solid fa-cloud-showers-heavy' };
                 return map[condition] || 'fa-solid fa-cloud-question';
             };
             const getWeatherDescription = (condition) => {
-                const map = {
-                    snow: '大雪/降雪',
-                    sunny: '晴朗',
-                    cloudy: '多雲/陰天',
-                    rain: '降雨'
-                };
+                const map = { snow: '大雪/降雪', sunny: '晴朗', cloudy: '多雲/陰天', rain: '降雨' };
                 return map[condition] || '天氣資訊未定';
             };
             const getTransportIcon = (type) => {
                 const map = {
-                    walk: 'fa-solid fa-shoe-prints',
+                    walk: 'fa-solid fa-person-walking',
                     car: 'fa-solid fa-car-side',
                     bus: 'fa-solid fa-bus-simple',
                     public: 'fa-solid fa-train-subway',
@@ -750,37 +667,30 @@
 
             const openMap = (query) => {
                 if (query) {
-                    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
-                    window.open(url, '_blank');
+                    window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`, '_blank');
                 }
             };
 
             const openMapDirections = (startItem, endItem) => {
                 const origin = startItem.address || startItem.name;
                 const destination = endItem.address || endItem.name;
-                
                 if (origin && destination) {
-                    const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=${endItem.transportType === 'car' ? 'driving' : 'transit'}`;
-                    window.open(url, '_blank');
+                    const mode = endItem.transportType === 'car' ? 'driving' : 'transit';
+                    window.open(`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=${mode}`, '_blank');
                 } else {
-                    alert('移動兩點間至少需要一個地點名稱或地址。');
+                    alert('需要起點與終點才能導航');
                 }
             };
             
             const handleAddClick = () => {
-                if (currentTab.value === 'itinerary') {
-                    resetItineraryForm();
-                    showItineraryModal.value = true;
-                }
-                // 移除購物與花費的新增邏輯
+                resetItineraryForm();
+                showItineraryModal.value = true;
             };
             
-            // --- 行程管理 ---
+            // --- 行程 CRUD ---
             const resetItineraryForm = () => {
                 isEditMode.value = false;
-                newItinerary.value = {
-                    id: Date.now(), name: '', category: 'sightseeing', startTime: '', hours: '', address: '', price: '', note: '', transportType: 'car', travelTime: '', isNoteExpanded: false
-                };
+                newItinerary.value = { id: Date.now(), name: '', category: 'sightseeing', startTime: '', hours: '', address: '', price: '', note: '', pdfFile: null, pdfName: null };
             };
 
             const editItem = (item) => {
@@ -789,85 +699,127 @@
                 showItineraryModal.value = true;
             };
 
+            const handlePdfUpload = (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    if (file.type !== 'application/pdf') {
+                        alert('只能上傳 PDF 檔案');
+                        return;
+                    }
+                    if (file.size > 2 * 1024 * 1024) { // 2MB Limit
+                         alert("PDF 檔案過大 (限制 2MB)，這可能導致無法儲存。");
+                    }
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        newItinerary.value.pdfFile = e.target.result;
+                        newItinerary.value.pdfName = file.name;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+
             const saveItineraryItem = () => {
                 if (!newItinerary.value.name) {
                     alert('行程名稱不能為空');
                     return;
                 }
-                
                 if (isEditMode.value) {
                     const index = currentItinerary.value.findIndex(item => item.id === newItinerary.value.id);
                     if (index !== -1) {
-                        currentItinerary.value[index] = { ...newItinerary.value };
+                        // 保留原有的交通資訊，因為編輯視窗移除了這些欄位
+                        const original = currentItinerary.value[index];
+                        currentItinerary.value[index] = { 
+                            ...newItinerary.value, 
+                            transportType: original.transportType, 
+                            transportTime: original.transportTime, 
+                            transportDetail: original.transportDetail 
+                        };
                     }
                 } else {
-                    const newItem = { ...newItinerary.value };
-                    newItem.id = Date.now();
+                    const newItem = { ...newItinerary.value, transportType: 'walk', transportTime: '', transportDetail: '' };
                     itineraryData.value[selectedDateIndex.value].push(newItem);
                 }
-                
+                // Trigger Reactivity
                 itineraryData.value[selectedDateIndex.value] = [...currentItinerary.value];
                 showItineraryModal.value = false;
                 isEditMode.value = false;
             };
             
             const removeItineraryItem = (id) => {
-                if (confirm('確定要刪除這個行程嗎？此操作無法復原。')) {
+                if (confirm('確定要刪除這個行程嗎？')) {
                     const currentList = itineraryData.value[selectedDateIndex.value];
                     const index = currentList.findIndex(item => item.id === id);
-                    
                     if (index !== -1) {
                         currentList.splice(index, 1);
                         itineraryData.value[selectedDateIndex.value] = [...currentList];
                         showItineraryModal.value = false;
-                        isEditMode.value = false;
                     }
                 }
             };
             
-            const moveItinerary = (id, direction) => {
+            const moveItineraryUp = (id) => {
                 const currentList = currentItinerary.value;
                 const index = currentList.findIndex(item => item.id === id);
-
-                if (index === -1) return;
-
-                const newIndex = index + direction;
-                if (newIndex >= 0 && newIndex < currentList.length) {
+                if (index > 0) {
                     const item = currentList.splice(index, 1)[0];
-                    currentList.splice(newIndex, 0, item);
+                    currentList.splice(index - 1, 0, item);
+                    itineraryData.value[selectedDateIndex.value] = [...currentList];
+                }
+            };
+            
+            const moveItineraryDown = (id) => {
+                const currentList = currentItinerary.value;
+                const index = currentList.findIndex(item => item.id === id);
+                if (index < currentList.length - 1) {
+                    const item = currentList.splice(index, 1)[0];
+                    currentList.splice(index + 1, 0, item);
                     itineraryData.value[selectedDateIndex.value] = [...currentList];
                 }
             };
 
-            const moveItineraryUp = (id) => moveItinerary(id, -1);
-            const moveItineraryDown = (id) => moveItinerary(id, 1);
+            // --- 交通資訊編輯 ---
+            const openTransportEdit = (item) => {
+                editingTransport.value = {
+                    itemId: item.id,
+                    transportType: item.transportType || 'walk',
+                    transportTime: item.transportTime || '',
+                    transportDetail: item.transportDetail || ''
+                };
+                showTransportModal.value = true;
+            };
 
-            // 移除購物與花費相關的所有 Methods
+            const saveTransportInfo = () => {
+                const index = currentItinerary.value.findIndex(item => item.id === editingTransport.value.itemId);
+                if (index !== -1) {
+                    currentItinerary.value[index].transportType = editingTransport.value.transportType;
+                    currentItinerary.value[index].transportTime = editingTransport.value.transportTime;
+                    currentItinerary.value[index].transportDetail = editingTransport.value.transportDetail;
+                    // Trigger reactivity
+                    itineraryData.value[selectedDateIndex.value] = [...currentItinerary.value];
+                }
+                showTransportModal.value = false;
+            };
 
             onMounted(() => {
                 calculateCurrency();
-                // 讀取已儲存的資料
                 loadFromStorage();
             });
 
-            // 監聽行程資料變更，自動儲存
-            watch([itineraryData], () => {
+            watch(itineraryData, () => {
                 saveToStorage();
             }, { deep: true });
 
             return {
                 currentTab, dates, selectedDateIndex, itineraryData, currentItinerary,
-                hotels, 
-                weatherData, currencyInput, currencyResult, calculateCurrency,
+                hotels, weatherData, currencyInput, currencyResult, calculateCurrency,
                 getCategoryColor, getCategoryIcon, getWeatherIcon, getTransportIcon, getWeatherDescription,
-                showItineraryModal, isEditMode,
-                newItinerary,
-                handleAddClick, editItem, saveItineraryItem,
-                removeItineraryItem, 
+                showItineraryModal, isEditMode, newItinerary,
+                showTransportModal, editingTransport,
+                handleAddClick, editItem, saveItineraryItem, removeItineraryItem, 
                 moveItineraryUp, moveItineraryDown, 
-                openMap, openMapDirections, formatNumber,
-                // New Exports
-                exportData, triggerImport, handleImport, resetData
+                openMap, openMapDirections, 
+                exportData, triggerImport, handleImport, resetData,
+                handlePdfUpload, openTransportEdit, saveTransportInfo
             };
         }
     }).mount('#app');
